@@ -39,7 +39,7 @@ public class ConverterActivity extends BaseActivity implements UserFollowEvent {
                 Log.e(TAG, "onClick: 点击自定义的button");
             }
         });
-        
+
     }
 
     @Override
