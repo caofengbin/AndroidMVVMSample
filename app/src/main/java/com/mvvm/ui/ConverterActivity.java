@@ -6,17 +6,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.mvvm.R;
 import com.mvvm.databinding.ConverterBinding;
-import com.mvvm.databinding.CustomSetterBinding;
 import com.mvvm.event.UserFollowEvent;
 import com.mvvm.model.User;
 
 /**
+ * 演示事件绑定的实现方案
  * Created by chiclaim on 2016/02/23
  */
 public class ConverterActivity extends BaseActivity implements UserFollowEvent {
+
+    private static final String TAG = "ConverterActivity";
 
     private User user;
 
@@ -29,6 +32,14 @@ public class ConverterActivity extends BaseActivity implements UserFollowEvent {
         binding.setUser(user);
         binding.setUserFollowEvent(this);
 
+        Button myButton = (Button) findViewById(R.id.my_button);
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e(TAG, "onClick: 点击自定义的button");
+            }
+        });
+        
     }
 
     @Override

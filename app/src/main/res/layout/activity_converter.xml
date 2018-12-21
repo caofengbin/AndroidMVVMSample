@@ -46,6 +46,14 @@
                 android:layout_marginLeft="20dp"
                 android:onClick="@{user.isFollow ? userFollowEvent.unFollow : userFollowEvent.follow}"
                 android:text="@{user.isFollow ? `UnFollow`:`Follow` ,default=`Follow`}"/>
+
+            <Button
+                android:id="@+id/my_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="自定义的Button"/>
+
         </LinearLayout>
 
     </LinearLayout>
