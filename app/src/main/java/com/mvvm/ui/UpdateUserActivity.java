@@ -14,10 +14,14 @@ import com.mvvm.model.User;
 import com.mvvm.model.UserField;
 
 /**
+ * 第二个demo演示界面，数据可变的场景下，如果实现MVVM
  * Created by chiclaim on 2016/02/18
  */
 public class UpdateUserActivity extends BaseActivity {
     private ActivityUpdateUserBinding binding;
+
+    // 当前的Activity中使用了三种动态修改数据的方式，具体可以参照文章中的说明进行整理，
+    // 推荐使用第二种方式，UserField中的实现方案。
     private User user;
     private UserField userField = new UserField();
     private ObservableArrayMap<String, Object> map = new ObservableArrayMap();
@@ -49,7 +53,7 @@ public class UpdateUserActivity extends BaseActivity {
     //3,通过Observable Collections的方式 如:ObservableArrayMap
     //4,当然可以通过binding.setUser(user) [相当于所有的View重新设置一遍]
     public void updateNameByPOJP(View view) {
-
+        // 点击按钮完成之后，手动的修改user中的数据，然后通过 ActivityUpdateUserBinding set变量数据即可。
         if ("Johnny".equals(user.getRealName())) {
             user.setRealName("Chiclaim");
             user.setMobile("110");
@@ -57,6 +61,7 @@ public class UpdateUserActivity extends BaseActivity {
             user.setRealName("Johnny");
             user.setMobile("119");
         }
+
         //当然可以通过binding.setUser(user)
         binding.setUser(user);
     }
