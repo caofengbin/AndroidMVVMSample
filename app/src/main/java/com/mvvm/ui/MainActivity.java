@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.mvvm.BR;
 import com.mvvm.R;
-import com.mvvm.databinding.SearchDebounceBinding;
 
 /**
  * 1, 用户修改用户名 , 如果多界面都使用了用户名,则需要在使用的界面同步更新.
@@ -28,10 +27,19 @@ public class MainActivity extends BaseActivity {
         Log.d("MainActivuty", BR.book1 + "");
     }
 
+    /**
+     * 第一个按钮的点击响应，跳转到 Simple Sample当中的Activity
+     *
+     * @param view 第一个按钮
+     */
     public void simpleSample(View view) {
         launchActivity(DataBindSimpleActivity.class);
     }
 
+    /**
+     * 第二个按钮的点击响应，跳转到数据可变化的界面当中去
+     * @param view
+     */
     public void observableSample(View view) {
         UpdateUserActivity.launch(this);
     }
@@ -55,7 +63,7 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    public void searchDebounce(View view){
+    public void searchDebounce(View view) {
         Intent intent = new Intent(this, SearchDebounceActivity.class);
         startActivity(intent);
     }

@@ -8,10 +8,12 @@ import com.mvvm.R;
 import com.mvvm.databinding.ActivitySimpleBinding;
 import com.mvvm.model.User;
 
+/**
+ * 第一个示例界面，最简单的一个demo
+ */
 public class DataBindSimpleActivity extends BaseActivity {
 
     private ActivitySimpleBinding binding;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
