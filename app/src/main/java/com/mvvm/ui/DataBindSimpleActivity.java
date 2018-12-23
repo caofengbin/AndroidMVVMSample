@@ -52,7 +52,42 @@ public class DataBindSimpleActivity extends BaseActivity {
                 User user = new User("Chiclaim", "13512341234");
                 binding.setUser(user);
                 //binding.setVariable(com.mvvm.BR.user, user);
+                fetchData2();
+            }
+        }.execute();
+    }
+
+    /**
+     * 模拟获取数据
+     */
+    private void fetchData2() {
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                showLoadingDialog();
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                hideLoadingDialog();
+                User user = new User("第二次返回的名称", "13512341234");
+                binding.setUser(user);
+                //binding.setVariable(com.mvvm.BR.user, user);
             }
         }.execute();
     }
 }
+
